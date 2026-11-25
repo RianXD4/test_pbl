@@ -1,9 +1,8 @@
 <?php
-if (!defined('BASE_PATH')) {
-    define('BASE_PATH', dirname(__DIR__)); 
+$basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
+if ($basePath === '.' || $basePath === '/') {
+    $basePath = '';
 }
-header("Location: " . BASE_PATH . "/ditemukan");
 
-
-exit();
-?>
+header('Location: ' . $basePath . '/ditemukan.php', true, 302);
+exit;
