@@ -10,10 +10,6 @@ $router->post("/", function () {
     echo "POST ke beranda";
 });
 
-$router->get("/healthz", function () {
-    http_response_code(200);
-    echo "OK";
-});
 
 // Auth
 $router->get("/login", "AuthController@showLogin");
