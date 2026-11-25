@@ -4,5 +4,5 @@ if ($basePath === '.' || $basePath === '/') {
     $basePath = '';
 }
 
-header('Location: ' . $basePath . '/ditemukan.php', true, 302);
+header('Location: ' . $basePath . '/ditemukan', true, 302);
 exit;
