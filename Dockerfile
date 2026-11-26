@@ -11,6 +11,14 @@ RUN apt-get update \
 
 COPY . /var/www/html/
 
+RUN mkdir -p \
+        /var/www/html/public/uploads/kehilangan \
+        /var/www/html/public/uploads/penemuan \
+        /var/www/html/public/uploads/avatars \
+        /var/www/html/public/uploads/klaim \
+    && chown -R www-data:www-data /var/www/html/public/uploads \
+    && chmod -R 775 /var/www/html/public/uploads
+
 RUN sed -ri \
         -e "s|/var/www/html|${APACHE_DOCUMENT_ROOT}|g" \
         -e 's|AllowOverride None|AllowOverride All|g' \
